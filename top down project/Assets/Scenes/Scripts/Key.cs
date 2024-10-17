@@ -16,7 +16,7 @@ public class Key : MonoBehaviour
         
     }
 
-    private voice OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag.Equals("Player"))
         {

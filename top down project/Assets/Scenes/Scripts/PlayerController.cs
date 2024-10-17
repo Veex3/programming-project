@@ -1,22 +1,27 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
 public class PlayerController : MonoBehaviour
 {
     public float speed;
-    private SpriteRenderer sr;
+    //private SpriteRenderer sr;
     public bool hasKey = false;
 
 
     //sprite variables
-    public Sprite upSprite;
-    public Sprite leftSprite;
-    public Sprite rightSprite;
-    public Sprite frontSprite;
+    //public Sprite upSprite;
+    //public Sprite leftSprite;
+    //public Sprite rightSprite;
+    //public Sprite frontSprite;
 
     //public Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        sr = GetComponent<SpriteRenderer>();
+        //sr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -29,45 +34,30 @@ public class PlayerController : MonoBehaviour
         {
             newPosition.y += speed;
             //change sprite to up sprite
-            sr.sprite = upSprite;
+            //sr.sprite = upSprite;
         }
 
         //go left
         if (Input.GetKey("a"))
         {
             newPosition.x -= speed;
-            sr.sprite = leftSprite;
+            //sr.sprite = leftSprite;
         }
 
         //go down
         if (Input.GetKey("s"))
         {
             newPosition.y -= speed;
-            sr.sprite = frontSprite;
+            //sr.sprite = frontSprite;
         }
 
         //go right
         if (Input.GetKey("d"))
         {
             newPosition.x += speed;
-            sr.sprite = rightSprite;
+            //sr.sprite = rightSprite;
         }
 
         transform.position = newPosition;
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag.Equals("key"))
-        {
-            hasKey = true; //key get
-            Debug.Log("gotcha!!");
-        }
-
-        //check if colliding with a game object with specific tag
-        if (collision.gameObject.tag.Equals("door1"))
-        {
-            Debug.Log("change scene");
-            SceneManager.LoadScene(1);
-        }
-    }
+}
