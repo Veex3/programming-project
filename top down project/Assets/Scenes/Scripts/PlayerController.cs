@@ -18,17 +18,19 @@ public class PlayerController : MonoBehaviour
 
     public Rigidbody2D rb;
 
+    public static PlayerController instance;
+
     // Start is called before the first frame update
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
-        //if (instance != null) //if another instance of the player is in the scene
+        if (instance != null) //if another instance of the player is in the scene
         {
-            //Destroy(gameObject); //then destroy it
+            Destroy(gameObject); //then destroy it
         }
 
-        //instance = this; //reassign the instance to the current player
-        //GameObject.DontDestroyOnLoad(this.gameObject);
+        instance = this; //reassign the instance to the current player
+        GameObject.DontDestroyOnLoad(this.gameObject);
     }
 
     // Update is called once per frame
