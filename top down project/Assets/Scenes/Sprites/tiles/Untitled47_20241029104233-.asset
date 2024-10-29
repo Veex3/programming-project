@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: chair
+  m_Name: Untitled47_20241029104233-
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: ecb385a03e90d5f49b905026ce5fcdc7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f4f33698e9fbeac43878a507128dd164, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
