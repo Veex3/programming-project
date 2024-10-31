@@ -8,7 +8,8 @@ public class PlayerController : MonoBehaviour
     public float speed;
     private SpriteRenderer sr;
     public bool hasKey = false;
-
+    public AudioSource soundEffects;
+    public AudioClip[] sounds;
 
     //sprite variables
     public Sprite MB_Butt;
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        soundEffects = GetComponent<AudioSource>();
         sr = GetComponent<SpriteRenderer>();
         if (instance != null) //if another instance of the player is in the scene
         {
@@ -74,22 +76,22 @@ public class PlayerController : MonoBehaviour
         //check if colliding with a game object with specific tag
         if (collision.gameObject.tag.Equals("door1"))
         {
-            Debug.Log("change scene");
-            //soundEffects.PlayOneShot(sounds[1], .7f); //play door sound effect
-            SceneManager.LoadScene(1);
+            Debug.Log("go to scene 2");
+            soundEffects.PlayOneShot(sounds[0], .7f); //play door sound effect
+            SceneManager.LoadScene(2);
         }
 
         if (collision.gameObject.tag.Equals("key"))
         {
             Debug.Log("obtained key");
-            //soundEffects.PlayOneShot(sounds[0], .7f); //play item collect sound effect
+            soundEffects.PlayOneShot(sounds[0], .7f); //play item collect sound effect
             hasKey = true; //player has the key now
         }
 
         if (collision.gameObject.tag.Equals("door2") && hasKey == true)
         {
             Debug.Log("unlocked door!");
-            //soundEffects.PlayOneShot(sounds[1], .7f);
+            soundEffects.PlayOneShot(sounds[0], .7f);
             SceneManager.LoadScene(3); //take to new scene
         }
 
