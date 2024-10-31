@@ -90,7 +90,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("unlocked door!");
             //soundEffects.PlayOneShot(sounds[1], .7f);
-            SceneManager.LoadScene(0); //take to new scene
+            SceneManager.LoadScene(3); //take to new scene
         }
 
         if (collision.gameObject.tag.Equals("door3") && hasKey == true)
